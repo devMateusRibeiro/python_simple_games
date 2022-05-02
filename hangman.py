@@ -1,4 +1,9 @@
-palavra = 'banana'
+from random import choice
+
+#Retorna uma palavra aleatória dentro de uma lista
+def word_choicer():
+    wordlist = ['BANANA', 'MAÇA', 'MERCADO', 'FRUTEIRA', 'COMPUTADOR', 'TELEFONE']
+    return choice(wordlist)
 
 # Cria uma lista "_" com base no tamanho da palavra passada
 def list_maker(word):
@@ -20,6 +25,7 @@ def list_check(game_list):
     else:
         return True
 
+#Desenha o boneco conforme a quantidade de vidas restantes
 def drawn_boy(life):
     if(life <= 0):
         print('      O      ')
@@ -61,32 +67,51 @@ def drawn_boy(life):
 def play():
     print('Jogo da Forca!')
 
-    game_word = list_maker(palavra)
+    word = word_choicer()
+    game_word = list_maker(word)
 
     game_win = False
     lifes = 6
-    while(game_win == False):
+    while(game_win == False and lifes > 0):
+
+        print('_____________')
         print('      |      ')
         print('      |      ')
         drawn_boy(lifes)
         print(game_word)
 
-        letter_input = input('Digite uma letra: ')
+        letter_input = input('Digite uma letra: ').upper()
 
         counter = 0
         letter_points = 0
-        for x in palavra:
-            if(game_word[counter] == '_' and x == letter_input):
+        for x in word:
+            if(game_word[counter] == '_' and x == letter_input or game_word[counter] == letter_input):
                 game_word[counter] = letter_input
                 letter_points += 1
             
             counter += 1
 
-        if(letter_points <= 0):
+        if(letter_points > 0):
+            print(f'A letra "{letter_input}" se encontra nesta palavra!')
+            print(f'Vidas restantes: {lifes}')
+        else:
+            print(f'Você perdeu 1 vida!')
             lifes -= 1
-
-        print(game_word)
+            print(f'Vidas restantes: {lifes}')
+        
+        if(lifes == 0):
+            print('_____________')
+            print('      |      ')
+            print('      |      ')
+            drawn_boy(lifes)
+            print(f'A palavra era: {word}')
+            print('FIM DE JOGO!')
 
         game_win = list_check(game_word)
-    
-play()
+
+        if(game_win == True):
+            print('Parabéns, você ganhou!')
+            print(f'A palavra era: {word}')
+
+if(__name__ == '__main__'):
+    play()
