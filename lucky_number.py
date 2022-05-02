@@ -11,10 +11,10 @@ def difficult(difficult_input):
         return 5
     else:
         print('Nível inválido!')
-        return lucky_number_game()
+        return play()
 
 # Função do Game
-def lucky_number_game():
+def play():
     print('\nNúmero da Sorte! \n')
     sleep(0.5)
 
@@ -58,4 +58,6 @@ def lucky_number_game():
         else:
             print('Rodadas acabaram!')
             sleep(0.5)
-            
+
+if(__name__ == '__main__'):
+    play()

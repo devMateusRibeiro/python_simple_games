@@ -1,5 +1,6 @@
 from time import sleep
-from lucky_number import lucky_number_game
+import lucky_number
+import hangman
 
 def game_selector():
     print('############')
@@ -19,9 +20,9 @@ def game_selector():
     sleep(0.5)
 
     if(user_input == 1):
-        lucky_number_game()
+        lucky_number.play()
     elif(user_input == 2):
-        print('Em desenvolvimento!')
+        hangman.play()
     else:
         print('Jogo inválido!')
         return game_selector()
