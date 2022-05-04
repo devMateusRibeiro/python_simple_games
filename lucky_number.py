@@ -46,18 +46,18 @@ def play():
                 else:
                     if(user_num > secret_number):
                         print('Você chutou um número MAIOR que máquina! \n')
-                        sleep(1)
+                        sleep(0.5)
                         counter += 1
                     else:
                         print('Você chutou um número MENOR que máquina! \n')
-                        sleep(1)
+                        sleep(0.5)
                         counter += 1    
             else:
                 print('Número inválido!\n')
                 sleep(1)
         else:
             print('Rodadas acabaram!')
-            sleep(1)
+            sleep(2)
             menu.game_selector()
 
 if(__name__ == '__main__'):

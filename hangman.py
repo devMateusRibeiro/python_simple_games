@@ -31,29 +31,35 @@ def drawn_boy(life):
     if(life <= 0):
         print('      O      ')
         print('     /I\     ')
+        sleep(1)
         print('     / \     ')
         print('             ')
     elif(life == 1):
         print('      O      ')
         print('     /I\     ')
+        sleep(1)
         print('     /       ')
         print('             ')
     elif(life == 2):
         print('      O      ')
+        sleep(1)
         print('     /I\     ')
         print('             ')
         print('             ')
     elif(life == 3):
         print('      O      ')
+        sleep(1)
         print('     /I      ')
         print('             ')
         print('             ')
     elif(life == 4):
         print('      O      ')
+        sleep(1)
         print('      I      ')
         print('             ')
         print('             ')
     elif(life == 5):
+        sleep(1)
         print('      O      ')
         print('             ')
         print('             ')
@@ -79,6 +85,7 @@ def play():
         print('_____________')
         print('      |      ')
         print('      |      ')
+        sleep(0.5)
         drawn_boy(lifes)
         sleep(0.5)
 
@@ -112,21 +119,22 @@ def play():
             print('_____________')
             print('      |      ')
             print('      |      ')
+            sleep(0.5)
             drawn_boy(lifes)
-            sleep(0.5)
+            sleep(1)
             print(f'A palavra era: {word}')
-            sleep(0.5)
+            sleep(1)
             print('FIM DE JOGO!')
-            sleep(0.5)
+            sleep(2)
             menu.game_selector()
 
         game_win = list_check(game_word)
 
         if(game_win == True):
             print('Parabéns, você ganhou!')
-            sleep(0.5)
+            sleep(1)
             print(f'A palavra era: {word}')
-            sleep(0.5)
+            sleep(2)
             menu.game_selector()
 
 if(__name__ == '__main__'):
