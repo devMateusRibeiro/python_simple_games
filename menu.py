@@ -3,8 +3,8 @@ import lucky_number
 import hangman
 
 def game_selector():
-    print('############')
-    print(' Bem-vindo! ')
+    print('############\n')
+    print(' GAME  MENU \n')
     print('############')
     sleep(0.5)
 
@@ -15,7 +15,7 @@ def game_selector():
 
     print('\n')
 
-    print('[1] Número da Sorte \n[2] Jogo da Forca')
+    print('[1] Número da Sorte\n[2] Jogo da Forca')
     user_input = int(input(':'))
     sleep(0.5)
 
@@ -26,3 +26,6 @@ def game_selector():
     else:
         print('Jogo inválido!')
         return game_selector()
+
+if(__name__ == '__main__'):
+    game_selector()

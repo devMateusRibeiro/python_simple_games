@@ -1,5 +1,6 @@
 from random import choice
-
+from time import sleep
+import menu
 #Retorna uma palavra aleatória dentro de uma lista
 def word_choicer():
     wordlist = ['BANANA', 'MAÇA', 'MERCADO', 'FRUTEIRA', 'COMPUTADOR', 'TELEFONE']
@@ -66,6 +67,7 @@ def drawn_boy(life):
 # Função do Jogo da Forca
 def play():
     print('Jogo da Forca!')
+    sleep(0.5)
 
     word = word_choicer()
     game_word = list_maker(word)
@@ -78,9 +80,11 @@ def play():
         print('      |      ')
         print('      |      ')
         drawn_boy(lifes)
-        print(game_word)
+        sleep(0.5)
 
+        print(game_word)
         letter_input = input('Digite uma letra: ').upper()
+        sleep(0.5)
 
         counter = 0
         letter_points = 0
@@ -93,25 +97,37 @@ def play():
 
         if(letter_points > 0):
             print(f'A letra "{letter_input}" se encontra nesta palavra!')
+            sleep(1)
             print(f'Vidas restantes: {lifes}')
+            sleep(1)
+
         else:
             print(f'Você perdeu 1 vida!')
+            sleep(1)
             lifes -= 1
             print(f'Vidas restantes: {lifes}')
+            sleep(1)
         
         if(lifes == 0):
             print('_____________')
             print('      |      ')
             print('      |      ')
             drawn_boy(lifes)
+            sleep(0.5)
             print(f'A palavra era: {word}')
+            sleep(0.5)
             print('FIM DE JOGO!')
+            sleep(0.5)
+            menu.game_selector()
 
         game_win = list_check(game_word)
 
         if(game_win == True):
             print('Parabéns, você ganhou!')
+            sleep(0.5)
             print(f'A palavra era: {word}')
+            sleep(0.5)
+            menu.game_selector()
 
 if(__name__ == '__main__'):
     play()

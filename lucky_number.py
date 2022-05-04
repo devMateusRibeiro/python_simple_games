@@ -1,5 +1,6 @@
 from random import randrange
 from time import sleep
+import menu
 
 # Função para a seleção de dificuldade do Game
 def difficult(difficult_input):
@@ -23,7 +24,6 @@ def play():
     counter = 1;
 
     print('Escolha uma dificuldade: \n[1] Fácil\n[2] Médio\n[3] Difícil')
-    sleep(0.5)
     difficult_input = int(input(':'))
     sleep(0.5)
 
@@ -41,23 +41,24 @@ def play():
                 if(user_num == secret_number):
                     print(f'A máquina escolheu o número: {secret_number}')
                     print('Parabéns, você acertou o número!')
-                    sleep(0.5)
-                    break
+                    sleep(1)
+                    menu.game_selector()
                 else:
                     if(user_num > secret_number):
                         print('Você chutou um número MAIOR que máquina! \n')
-                        sleep(0.5)
+                        sleep(1)
                         counter += 1
                     else:
                         print('Você chutou um número MENOR que máquina! \n')
-                        sleep(0.5)
+                        sleep(1)
                         counter += 1    
             else:
                 print('Número inválido!\n')
-                sleep(0.5)
+                sleep(1)
         else:
             print('Rodadas acabaram!')
-            sleep(0.5)
+            sleep(1)
+            menu.game_selector()
 
 if(__name__ == '__main__'):
     play()
